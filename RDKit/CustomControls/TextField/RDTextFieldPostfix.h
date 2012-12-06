@@ -8,14 +8,22 @@
 
 #import "RDTextField.h"
 
+
+typedef NS_ENUM(NSInteger, RDPostfixVerticalAlignment) {
+    RDPostfixVerticalAlignmentTop,
+    RDPostfixVerticalAlignmentCenter,
+    RDPostfixVerticalAlignmentBottom
+};
+
 @interface RDTextFieldPostfix : RDTextField
+
+@property (nonatomic, assign) RDPostfixVerticalAlignment postfixAlignment;
+@property (nonatomic, strong) UIFont*   postfixFont;
 
 @property (nonatomic, strong) NSString* postfix;
 @property (nonatomic, strong) UIColor*  postfixColor;
-@property (nonatomic, strong) UIFont*   postfixFont;
 
 @property (nonatomic, strong) NSString* postfixPlaceholder;
 @property (nonatomic, strong) UIColor*  postfixPlaceholderColor;
-@property (nonatomic, strong) UIFont*   postfixPlaceholderFont;
 
 @end
