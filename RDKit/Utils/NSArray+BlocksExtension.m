@@ -2,7 +2,7 @@
 //  NSArray+BlocksExtension.m
 //  RDKit
 //
-//  Created by Alexey Dozortsev on 27.03.12.
+//  Created by Alexey Dozortsev on 07.12.12.
 //  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 

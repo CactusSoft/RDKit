@@ -2,7 +2,7 @@
 //  RDNetResourceSample.m
 //  RDKit
 //
-//  Created by Alexey Dozortsev on 12/7/12.
+//  Created by Alexey Dozortsev on 07.12.12.
 //  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "RDNetworking.h"
 #import "RDNetResource.h"
 
-@interface RDNetResourceSample ()
+@interface RDNetResourceSample ()<RDNetResourceDelegate>
 {
     UILabel* _networkActivityCountLabel;
 }
@@ -54,6 +54,10 @@
 {
     [super viewWillAppear:animated];
     
+    RDNetResource* resource = [[RDNetResource alloc] init];
+    [resource subscribe:self];
+    [resource unsubscribe:self];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkActivityChanged:) name:RDNetworkActivityNotification object:nil];
     [self networkActivityChanged:nil];
 }
@@ -61,8 +65,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -75,14 +77,23 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    
-    
 }
 
 #pragma mark - notifications
 - (void)networkActivityChanged:(NSNotification*)notification
 {
     _networkActivityCountLabel.text = [NSString stringWithFormat:@"Network activity count : %3d", 3];
+}
+
+#pragma mark - RDNetResourceDelegate
+- (void)resourceStateChanged:(id<RDNetResource>)resource from:(RDNetResourceState)fromState to:(RDNetResourceState)toState
+{
+    
+}
+
+- (void)resourceWillDelete:(id<RDNetResource>)resource
+{
+    
 }
 
 @end

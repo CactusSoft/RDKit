@@ -2,7 +2,7 @@
 //  NSCalendar+sharedCalendar.h
 //  RDKit
 //
-//  Created by Alexey Dozortsev on 12/07/12.
+//  Created by Alexey Dozortsev on 07.12.12.
 //  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 

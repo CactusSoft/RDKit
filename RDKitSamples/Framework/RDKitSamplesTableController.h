@@ -2,7 +2,7 @@
 //  RDKitSamplesTableController.h
 //  RDKit
 //
-//  Created by Alexey Dozortsev on 12/3/12.
+//  Created by Alexey Dozortsev on 03.12.12.
 //  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 

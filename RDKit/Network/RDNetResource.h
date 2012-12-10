@@ -2,7 +2,7 @@
 //  RDNetResource.h
 //  RDKit
 //
-//  Created by Alexey Dozortsev on 12/7/12.
+//  Created by Alexey Dozortsev on 07.12.12.
 //  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, RDNetResourceState) {
 
 @protocol RDNetResourceDelegate <NSObject>
 @required
-- (void)resourceStateChanged:(id<RDNetResource>)resource from:(RDNetResourceState)fromState to:(RDNetResourceState)toState;
+- (void)resource:(id<RDNetResource>)resource didChangeState:(RDNetResourceState)fromState to:(RDNetResourceState)toState;
 - (void)resourceWillDelete:(id<RDNetResource>)resource;
 @end
 

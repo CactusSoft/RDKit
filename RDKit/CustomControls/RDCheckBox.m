@@ -2,19 +2,13 @@
 //  RDCheckBox.m
 //  RDKit
 //
-//  Created by Alexey Dozortsev on 12/3/12.
+//  Created by Alexey Dozortsev on 03.12.12.
 //  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
 #import "RDCheckBox.h"
 
-static const CGFloat inset = 4.0f;
-
 @interface RDCheckBox ()
-{
-    UILabel* _label;
-    CGRect   _boxFrame;
-}
 
 - (void)initialize;
 
@@ -24,63 +18,28 @@ static const CGFloat inset = 4.0f;
 @implementation RDCheckBox
 
 #pragma mark - setters/getters
-- (void)setTitle:(NSString*)title
-{
-    _label.text = title;
-    [self setNeedsLayout];
-}
-
-- (NSString*)title
-{
-    return _label.text;
-}
-
-- (void)setTitleColor:(UIColor *)titleColor
-{
-    _label.textColor = titleColor;
-}
-
-- (UIColor*)titleColor
-{
-    return _label.textColor;
-}
-
-- (void)setTitleFont:(UIFont*)titleFont
-{
-    _label.font = titleFont;
-    [self setNeedsLayout];
-}
-
-- (UIFont*)titleFont
-{
-    return _label.font;
-}
-
 - (void)setOn:(BOOL)on
 {
     _on = on;
-    [self setNeedsLayout];
+    [self setNeedsDisplay];
 }
 
-- (void)setCheckMarkImage:(UIImage *)checkMarkImage
+- (void)setCheckmarkImage:(UIImage *)checkmarkImage
 {
-    if (checkMarkImage != _checkMarkImage) {
-        _checkMarkImage = checkMarkImage;
-        [self setNeedsLayout];
-    }
+    _checkmarkImage = checkmarkImage;
+    [self setNeedsDisplay];
 }
 
-- (void)setAlignment:(RDCheckBoxAlignment)alignment
+- (void)setBackgroundImage:(UIImage *)backgroundImage
 {
-    _alignment = alignment;
-    [self setNeedsLayout];
+    _backgroundImage = backgroundImage;
+    [self setNeedsDisplay];
 }
 
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    _label.highlighted = selected;
-    [self setNeedsLayout];
+    [self setNeedsDisplay];
 }
 
 #pragma mark initialize
@@ -114,52 +73,7 @@ static const CGFloat inset = 4.0f;
 - (void)initialize
 {
     self.opaque = NO;
-    self.backgroundColor = [UIColor clearColor];
-    
-    _label = [[UILabel alloc] init];
-    _label.numberOfLines = 0;
-    _label.backgroundColor = [UIColor clearColor];
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    switch (self.alignment) {
-        case RDCheckBoxAlignmentRight: {
-            _label.textAlignment = UITextAlignmentRight;
-        } break;
-        case RDCheckBoxAlignmentLeft: {
-            _label.textAlignment = UITextAlignmentLeft;
-        } break;
-    }
-    
-    _boxFrame.size = self.backgroundImage.size;
-    
-    CGRect lableFrame = self.bounds;
-    lableFrame.size.width -= _boxFrame.size.width + inset;
-    lableFrame.size = [_label sizeThatFits:lableFrame.size];
-    
-//    CGFloat height = lableFrame.size.height > _boxFrame.size.height ? lableFrame.size.height : _boxFrame.size.height;
-//    lableFrame.origin.y = (height - lableFrame.size.height)/2;
-//    _boxFrame.origin.y = (height - _boxFrame.size.height)/2;
-    lableFrame.origin.y = 0.0f;
-    _boxFrame.origin.y = 0.0f;
-    
-    switch (self.alignment) {
-        case RDCheckBoxAlignmentRight: {
-            lableFrame.origin.x = 0;
-            _boxFrame.origin.x = lableFrame.origin.x + lableFrame.size.width + inset;
-        } break;
-        case RDCheckBoxAlignmentLeft: {
-            _boxFrame.origin.x = 0;
-            lableFrame.origin.x = _boxFrame.origin.x + _boxFrame.size.width + inset;
-        } break;
-    }
-    
-    _label.frame = lableFrame;
-    
-    [self setNeedsDisplay];
+    self.backgroundColor = [UIColor  clearColor];
 }
 
 #pragma mark - drawing
@@ -170,15 +84,12 @@ static const CGFloat inset = 4.0f;
     CGFloat alpha = self.selected ? 0.7 : 1.0;
     alpha = self.enabled ? alpha : 0.5;
     
-    _label.enabled = self.enabled;
-    [_label drawTextInRect:_label.frame];
-    
-    [self.backgroundImage drawInRect:_boxFrame blendMode:kCGBlendModeNormal alpha:alpha];
+    [self.backgroundImage drawInRect:self.bounds blendMode:kCGBlendModeNormal alpha:alpha];
     
     if (self.on) {
-        CGPoint point = CGPointMake(_boxFrame.origin.x + (self.backgroundImage.size.width-self.checkMarkImage.size.width)/2,
-                                    _boxFrame.origin.y + (self.backgroundImage.size.height-self.checkMarkImage.size.height)/2);
-        [self.checkMarkImage drawAtPoint:point blendMode:0 alpha:alpha];
+        CGPoint point = CGPointMake(roundf((self.bounds.size.width - self.checkmarkImage.size.width)/2),
+                                    roundf((self.bounds.size.height-self.checkmarkImage.size.height)/2));
+        [self.checkmarkImage drawAtPoint:point blendMode:0 alpha:alpha];
     }
 }
 
