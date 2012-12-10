@@ -3,14 +3,14 @@
 //  RDKit
 //
 //  Created by Alexey Dozortsev on 12/3/12.
-//  Copyright (c) 2012 Alexey Dozortsev. All rights reserved.
+//  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
 #import "RDTextField.h"
 
 
 typedef NS_ENUM(NSInteger, RDPostfixVerticalAlignment) {
-    RDPostfixVerticalAlignmentTop,
+    RDPostfixVerticalAlignmentTop = 0,
     RDPostfixVerticalAlignmentCenter,
     RDPostfixVerticalAlignmentBottom
 };

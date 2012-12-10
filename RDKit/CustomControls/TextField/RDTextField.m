@@ -3,7 +3,7 @@
 //  RDKit
 //
 //  Created by Alexey Dozortsev on 12/3/12.
-//  Copyright (c) 2012 Alexey Dozortsev. All rights reserved.
+//  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
 #import "RDTextField.h"
@@ -15,9 +15,10 @@
 }
 @end
 
+
 @implementation RDTextField
 
-#pragma mark - setter
+#pragma mark setters/getters
 - (void)setBackground:(UIImage *)background
 {
     __backgroundImage = background;
@@ -35,7 +36,7 @@
     _textInsets = textInsets;
 }
 
-#pragma mark - initialize
+#pragma mark initialize
 - (id)init
 {
     self = [super init];
@@ -68,7 +69,7 @@
     super.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 }
 
-#pragma mark - override
+#pragma mark override
 - (CGRect)textRectForBounds:(CGRect)bounds
 {
     UIEdgeInsets insets = _textInsets;

@@ -3,12 +3,12 @@
 //  RDKit
 //
 //  Created by Alexey Dozortsev on 12/3/12.
-//  Copyright (c) 2012 Alexey Dozortsev. All rights reserved.
+//  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-#pragma mark for create and add controller to samples, JUST INHERIT from this class
+#pragma mark - for create and add controller to samples, JUST INHERIT from this class
 
 @interface RDKitSampleController : UIViewController
 + (NSString*)group;

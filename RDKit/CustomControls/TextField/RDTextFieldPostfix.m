@@ -3,7 +3,7 @@
 //  RDKit
 //
 //  Created by Alexey Dozortsev on 12/3/12.
-//  Copyright (c) 2012 Alexey Dozortsev. All rights reserved.
+//  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
 #import "RDTextFieldPostfix.h"
@@ -25,7 +25,7 @@
 
 @implementation RDTextFieldPostfix
 
-#pragma mark - setters/getters
+#pragma mark setters/getters
 - (void)setPostfixAlignment:(RDPostfixVerticalAlignment)postfixAlignment
 {
     _postfixAlignment = postfixAlignment;
@@ -86,7 +86,7 @@
     return self.postfixPlaceholderLabel.textColor;
 }
 
-#pragma mark - initialize
+#pragma mark initialize
 - (id)init
 {
     self = [super init];
@@ -177,7 +177,7 @@
     UIFont* postfixFont = nil;
     CGFloat postfixSpace = 0;
     
-    if(self.text.length > 0) {
+    if (self.text.length > 0) {
         textRect = [self textRectForBounds:self.bounds];
         stringWidth = [self.text sizeWithFont:self.font forWidth:textRect.size.width lineBreakMode:NSLineBreakByTruncatingTail].width;
         postfixRect = self.postfixLabel.frame;
@@ -208,20 +208,20 @@
     switch (self.contentVerticalAlignment) {
         case UIControlContentVerticalAlignmentCenter:
         case UIControlContentVerticalAlignmentFill:
-            textYLocation = (textRect.size.height - self.font.leading)/2;
+            textYLocation = (textRect.size.height - self.font.lineHeight)/2;
             break;
         case UIControlContentVerticalAlignmentTop:
             textYLocation = 0;
             break;
         case UIControlContentVerticalAlignmentBottom:
-            textYLocation = textRect.size.height - self.font.leading;
+            textYLocation = textRect.size.height - self.font.lineHeight;
             break;
     }
     
     switch (self.postfixAlignment) {
         case RDPostfixVerticalAlignmentTop: {
             CGFloat textCapLineYLocation = textRect.origin.y + textYLocation + self.font.ascender - self.font.capHeight;
-            CGFloat postfixCapLineYLocation = (postfixRect.size.height - postfixFont.leading) + postfixFont.ascender - postfixFont.capHeight;//coordinates on label
+            CGFloat postfixCapLineYLocation = (postfixRect.size.height - postfixFont.lineHeight) + postfixFont.ascender - postfixFont.capHeight;//coordinates on label
             postfixRect.origin.y = textCapLineYLocation - postfixCapLineYLocation;
         } break;
         case RDPostfixVerticalAlignmentCenter: {
@@ -229,12 +229,12 @@
         } break;
         case RDPostfixVerticalAlignmentBottom: {
             CGFloat textBaseLineYLocation = textRect.origin.y + textYLocation + self.font.ascender;
-            CGFloat postfixBaseLineYLocation = (postfixRect.size.height - postfixFont.leading)/2 + postfixFont.ascender;//coordinates on label
+            CGFloat postfixBaseLineYLocation = (postfixRect.size.height - postfixFont.lineHeight)/2 + postfixFont.ascender;//coordinates on label
             postfixRect.origin.y = textBaseLineYLocation - postfixBaseLineYLocation;
         } break;
     }
     
-    if(self.text.length > 0) {
+    if (self.text.length > 0) {
         self.postfixLabel.frame = postfixRect;
         self.postfixLabel.hidden = NO;
         self.postfixPlaceholderLabel.hidden = YES;

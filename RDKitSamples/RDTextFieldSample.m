@@ -3,7 +3,7 @@
 //  RDKit
 //
 //  Created by Alexey Dozortsev on 12/3/12.
-//  Copyright (c) 2012 Alexey Dozortsev. All rights reserved.
+//  Copyright (c) 2012 CactusSoft. All rights reserved.
 //
 
 #import "RDTextFieldSample.h"
@@ -29,7 +29,7 @@
 
 + (NSString*)subtitle
 {
-    return @"Sample for RDTextField class and his subclasses";
+    return @"Sample for RDTextField family classes";
 }
 
 - (void)viewDidLoad
@@ -114,7 +114,7 @@
     
     {
         CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 20, width, 34);
-        yTop = frame.origin.y + frame.size.height;
+        //yTop = frame.origin.y + frame.size.height;
         RDTextFieldPostfix* textField = [[RDTextFieldPostfix alloc] initWithFrame:CGRectIntegral(frame)];
         textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -122,9 +122,9 @@
         textField.textInsets = UIEdgeInsetsMake(8, 7, 8, 7);
         textField.delegate = self;
         textField.font = [UIFont systemFontOfSize:16];
-        textField.postfixFont = [UIFont systemFontOfSize:8];
+        textField.postfixFont = [UIFont systemFontOfSize:16];
         textField.postfixAlignment = RDPostfixVerticalAlignmentBottom;
-        textField.postfix = @"®";
+        textField.postfix = @"H®";
         textField.postfixPlaceholder = @"®";
         textField.postfixPlaceholderColor = [UIColor grayColor];
         textField.placeholder = @"Bottom aligned postfix";
