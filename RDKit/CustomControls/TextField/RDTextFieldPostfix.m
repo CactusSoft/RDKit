@@ -14,8 +14,8 @@
     CGFloat _postfixPlaceholderSpace;
 }
 
-@property (nonatomic, retain) UILabel* postfixLabel;
-@property (nonatomic, retain) UILabel* postfixPlaceholderLabel;
+@property (nonatomic, strong) UILabel* postfixLabel;
+@property (nonatomic, strong) UILabel* postfixPlaceholderLabel;
 
 - (void)initialize;
 - (void)layoutPostfix;

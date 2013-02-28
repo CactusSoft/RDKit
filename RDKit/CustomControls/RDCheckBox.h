@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface RDCheckBox : UIControl
-@property (nonatomic, retain) UIImage* backgroundImage;
-@property (nonatomic, retain) UIImage* checkmarkImage;
+
+@property (nonatomic, strong) UIImage* backgroundImage;
+@property (nonatomic, strong) UIImage* checkmarkImage;
 @property (nonatomic, assign) BOOL on;
+
 @end
 

@@ -49,6 +49,16 @@
 
 - (void)load
 {
+    if (self.state != RDNetResourceStateLoading && self.state != RDNetResourceStateProcessing) {
+        
+        
+    }
+}
+
+- (void)reload
+{
+    [self cancel];
+    [self load];
 }
 
 - (void)cancel

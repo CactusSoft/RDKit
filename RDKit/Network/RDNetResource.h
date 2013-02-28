@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, RDNetResourceState) {
-    RDKResourceStateInvalid = 0,
-    RDKResourceStateLoading,
-    RDKResourceStateProcessing,
-    RDKResourceStateCanceled,
-    RDKResourceStateFailed,
-    RDKResourceStateReady
+    RDNetResourceStateInvalid = 0,
+    RDNetResourceStateLoading,
+    RDNetResourceStateProcessing,
+    RDNetResourceStateCanceled,
+    RDNetResourceStateFailed,
+    RDNetResourceStateReady
 };
 
 @protocol RDNetResource;
@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, RDNetResourceState) {
 - (void)unsubscribe:(id<RDNetResourceDelegate>)delegate;
 
 - (void)load;
+- (void)reload;
 - (void)cancel;
 
 @end

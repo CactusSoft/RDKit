@@ -18,6 +18,7 @@
 @implementation RDCheckBox
 
 #pragma mark - setters/getters
+
 - (void)setOn:(BOOL)on
 {
     _on = on;
@@ -43,6 +44,7 @@
 }
 
 #pragma mark initialize
+
 - (id)init
 {
     self = [super init];
@@ -77,6 +79,7 @@
 }
 
 #pragma mark - drawing
+
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
@@ -94,6 +97,7 @@
 }
 
 #pragma mark - touches
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];

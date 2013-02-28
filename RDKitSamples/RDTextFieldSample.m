@@ -15,6 +15,7 @@
 
 @end
 
+
 @implementation RDTextFieldSample
 
 + (NSString*)group
@@ -45,13 +46,13 @@
         UIImage* image = [UIImage stretchableFromCenterImageNamed:@"field.png"];
         UIImage* imageHighlighted = [UIImage stretchableFromCenterImageNamed:@"field_highlighted.png"];
         
-        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 20, width, 34);
+        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 10, width, 34);
         yTop = frame.origin.y + frame.size.height;
         RDTextField* textField = [[RDTextField alloc] initWithFrame:CGRectIntegral(frame)];
         textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.background = image;
-        textField.inputBackground = imageHighlighted;
+        textField.highlightedBackground = imageHighlighted;
         textField.textInsets = UIEdgeInsetsMake(8, 7, 8, 7);
         textField.delegate = self;
         textField.font = [UIFont systemFontOfSize:14];
@@ -62,13 +63,13 @@
         UIImage* image = [UIImage stretchableFromCenterImageNamed:@"field.png"];
         UIImage* imageHighlighted = [UIImage stretchableFromCenterImageNamed:@"field_highlighted.png"];
         
-        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 20, width, 27);
+        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 10, width, 27);
         yTop = frame.origin.y + frame.size.height;
         RDTextField* textField = [[RDTextField alloc] initWithFrame:CGRectIntegral(frame)];
         textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.background = image;
-        textField.inputBackground = imageHighlighted;
+        textField.highlightedBackground = imageHighlighted;
         textField.textInsets = UIEdgeInsetsMake(6, 5, 6, 4);
         textField.delegate = self;
         textField.font = [UIFont systemFontOfSize:12];
@@ -79,13 +80,13 @@
         UIImage* image = [UIImage imageNamed:@"field_dashed.png"];
         UIImage* imageHighlighted = [UIImage imageNamed:@"field_dashed_highlighted.png"];
         
-        CGRect frame = CGRectMake((self.view.bounds.size.width-image.size.width)/2, yTop + 20, image.size.width, image.size.height);
+        CGRect frame = CGRectMake((self.view.bounds.size.width-image.size.width)/2, yTop + 10, image.size.width, image.size.height);
         yTop = frame.origin.y + frame.size.height;
         RDTextField* textField = [[RDTextField alloc] initWithFrame:CGRectIntegral(frame)];
         textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.background = image;
-        textField.inputBackground = imageHighlighted;
+        textField.highlightedBackground = imageHighlighted;
         textField.textInsets = UIEdgeInsetsMake(7, 7, 7, 7);
         textField.delegate = self;
         textField.font = [UIFont systemFontOfSize:14];
@@ -93,7 +94,7 @@
     }
     
     {
-        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 20, width, 34);
+        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 10, width, 34);
         yTop = frame.origin.y + frame.size.height;
         RDTextFieldPostfix* textField = [[RDTextFieldPostfix alloc] initWithFrame:CGRectIntegral(frame)];
         textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
@@ -113,8 +114,8 @@
     }
     
     {
-        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 20, width, 34);
-        //yTop = frame.origin.y + frame.size.height;
+        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 10, width, 34);
+        yTop = frame.origin.y + frame.size.height;
         RDTextFieldPostfix* textField = [[RDTextFieldPostfix alloc] initWithFrame:CGRectIntegral(frame)];
         textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -122,12 +123,32 @@
         textField.textInsets = UIEdgeInsetsMake(8, 7, 8, 7);
         textField.delegate = self;
         textField.font = [UIFont systemFontOfSize:16];
-        textField.postfixFont = [UIFont systemFontOfSize:16];
+        textField.postfixFont = [UIFont systemFontOfSize:8];
         textField.postfixAlignment = RDPostfixVerticalAlignmentBottom;
-        textField.postfix = @"H®";
+        textField.postfix = @"®";
         textField.postfixPlaceholder = @"®";
         textField.postfixPlaceholderColor = [UIColor grayColor];
         textField.placeholder = @"Bottom aligned postfix";
+        
+        [self.view addSubview:textField];
+    }
+    
+    {
+        CGRect frame = CGRectMake((self.view.bounds.size.width - width)/2.0, yTop + 10, width, 50);
+        //yTop = frame.origin.y + frame.size.height;
+        RDTextFieldPostfix* textField = [[RDTextFieldPostfix alloc] initWithFrame:CGRectIntegral(frame)];
+        textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.background = [UIImage stretchableFromCenterImageNamed:@"field.png"];
+        textField.textInsets = UIEdgeInsetsMake(8, 7, 8, 7);
+        textField.delegate = self;
+        textField.font = [UIFont systemFontOfSize:24];
+        textField.postfixFont = [UIFont systemFontOfSize:8];
+        textField.postfixAlignment = RDPostfixVerticalAlignmentCenter;
+        textField.postfix = @"®";
+        textField.postfixPlaceholder = @"®";
+        textField.postfixPlaceholderColor = [UIColor grayColor];
+        textField.placeholder = @"Center aligned postfix";
         
         [self.view addSubview:textField];
     }

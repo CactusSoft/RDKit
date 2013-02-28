@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RDTextField : UITextField
-@property (nonatomic, strong) UIImage* inputBackground;
+@property (nonatomic, strong) UIImage* highlightedBackground;
 @property (nonatomic, assign) UIEdgeInsets textInsets;
 @end

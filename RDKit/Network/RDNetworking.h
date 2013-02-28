@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString* RDNetworkActivityNotification;
+static NSString* const RDNetworkActivityNotification;
 
 
 @interface RDNetworkManager : NSObject

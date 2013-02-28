@@ -38,6 +38,9 @@
 		234C750E166CB1CA0061C70C /* Icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 234C750A166CB1C90061C70C /* Icon~iphone.png */; };
 		2396C285166F2524001570B2 /* field@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2396C283166F2524001570B2 /* field@2x.png */; };
 		2396C286166F2524001570B2 /* field.png in Resources */ = {isa = PBXBuildFile; fileRef = 2396C284166F2524001570B2 /* field.png */; };
+		23A50BDA16DE1D69002EAD0F /* RDModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A50BD916DE1D68002EAD0F /* RDModalView.m */; };
+		23A50BE416DE31F0002EAD0F /* RDRSSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A50BE316DE31F0002EAD0F /* RDRSSView.m */; };
+		23A50BE716DE3598002EAD0F /* RDRSSSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A50BE616DE3598002EAD0F /* RDRSSSampleController.m */; };
 		23AE2276166CC820007EB1ED /* RDKitSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AE2275166CC820007EB1ED /* RDKitSampleController.m */; };
 		23AE227A166CCA19007EB1ED /* RDKitSamplesGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AE2279166CCA19007EB1ED /* RDKitSamplesGroup.m */; };
 		23AE2285166CD212007EB1ED /* RDTextFieldSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AE2284166CD212007EB1ED /* RDTextFieldSample.m */; };
@@ -52,6 +55,8 @@
 		23CCD8BC1675BA5100D2E3A3 /* RDRunTimeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CCD8BB1675BA5100D2E3A3 /* RDRunTimeSample.m */; };
 		23CCD8C81675CFD200D2E3A3 /* NSArray+BlocksExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CCD8C71675CFD200D2E3A3 /* NSArray+BlocksExtension.m */; };
 		23CCD8CC1675D10F00D2E3A3 /* NSDate+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CCD8CB1675D10F00D2E3A3 /* NSDate+Util.m */; };
+		23CDE74716DF4F4800C47519 /* RDRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CDE74616DF4F4800C47519 /* RDRadioButton.m */; };
+		23CDE74A16DF52AF00C47519 /* RDRadioButtonSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CDE74916DF52AF00C47519 /* RDRadioButtonSample.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +106,12 @@
 		234C750A166CB1C90061C70C /* Icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~iphone.png"; sourceTree = "<group>"; };
 		2396C283166F2524001570B2 /* field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "field@2x.png"; sourceTree = "<group>"; };
 		2396C284166F2524001570B2 /* field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field.png; sourceTree = "<group>"; };
+		23A50BD816DE1D68002EAD0F /* RDModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDModalView.h; sourceTree = "<group>"; };
+		23A50BD916DE1D68002EAD0F /* RDModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDModalView.m; sourceTree = "<group>"; };
+		23A50BE216DE31F0002EAD0F /* RDRSSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDRSSView.h; sourceTree = "<group>"; };
+		23A50BE316DE31F0002EAD0F /* RDRSSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDRSSView.m; sourceTree = "<group>"; };
+		23A50BE516DE3597002EAD0F /* RDRSSSampleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDRSSSampleController.h; sourceTree = "<group>"; };
+		23A50BE616DE3598002EAD0F /* RDRSSSampleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDRSSSampleController.m; sourceTree = "<group>"; };
 		23AE2274166CC820007EB1ED /* RDKitSampleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDKitSampleController.h; sourceTree = "<group>"; };
 		23AE2275166CC820007EB1ED /* RDKitSampleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDKitSampleController.m; sourceTree = "<group>"; };
 		23AE2278166CCA19007EB1ED /* RDKitSamplesGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDKitSamplesGroup.h; sourceTree = "<group>"; };
@@ -125,6 +136,10 @@
 		23CCD8C71675CFD200D2E3A3 /* NSArray+BlocksExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BlocksExtension.m"; sourceTree = "<group>"; };
 		23CCD8CA1675D10F00D2E3A3 /* NSDate+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Util.h"; sourceTree = "<group>"; };
 		23CCD8CB1675D10F00D2E3A3 /* NSDate+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Util.m"; sourceTree = "<group>"; };
+		23CDE74516DF4F4800C47519 /* RDRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDRadioButton.h; sourceTree = "<group>"; };
+		23CDE74616DF4F4800C47519 /* RDRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDRadioButton.m; sourceTree = "<group>"; };
+		23CDE74816DF52AF00C47519 /* RDRadioButtonSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDRadioButtonSample.h; sourceTree = "<group>"; };
+		23CDE74916DF52AF00C47519 /* RDRadioButtonSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDRadioButtonSample.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,10 +224,14 @@
 				23AE2284166CD212007EB1ED /* RDTextFieldSample.m */,
 				230E028F1671B819003A9A6F /* RDCheckBoxSample.h */,
 				230E02901671B819003A9A6F /* RDCheckBoxSample.m */,
+				23CDE74816DF52AF00C47519 /* RDRadioButtonSample.h */,
+				23CDE74916DF52AF00C47519 /* RDRadioButtonSample.m */,
 				230E02A71671E84E003A9A6F /* RDNetResourceSample.h */,
 				230E02A81671E84E003A9A6F /* RDNetResourceSample.m */,
 				23CCD8BA1675BA5100D2E3A3 /* RDRunTimeSample.h */,
 				23CCD8BB1675BA5100D2E3A3 /* RDRunTimeSample.m */,
+				23A50BE516DE3597002EAD0F /* RDRSSSampleController.h */,
+				23A50BE616DE3598002EAD0F /* RDRSSSampleController.m */,
 				234C749C166CA2030061C70C /* Framework */,
 			);
 			path = RDKitSamples;
@@ -262,7 +281,13 @@
 				23025D411675EF32003F88DD /* RDBadgeView.m */,
 				230E028B1671B59D003A9A6F /* RDCheckBox.h */,
 				230E028C1671B59D003A9A6F /* RDCheckBox.m */,
+				23CDE74516DF4F4800C47519 /* RDRadioButton.h */,
+				23CDE74616DF4F4800C47519 /* RDRadioButton.m */,
 				23AE22BB166DDB3C007EB1ED /* TextField */,
+				23A50BD816DE1D68002EAD0F /* RDModalView.h */,
+				23A50BD916DE1D68002EAD0F /* RDModalView.m */,
+				23A50BE216DE31F0002EAD0F /* RDRSSView.h */,
+				23A50BE316DE31F0002EAD0F /* RDRSSView.m */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -432,6 +457,11 @@
 				23025D381675E252003F88DD /* NSMutableArray+WeakReferences.m in Sources */,
 				23025D401675E85F003F88DD /* RDHTTPResource.m in Sources */,
 				23025D431675EF32003F88DD /* RDBadgeView.m in Sources */,
+				23A50BDA16DE1D69002EAD0F /* RDModalView.m in Sources */,
+				23A50BE416DE31F0002EAD0F /* RDRSSView.m in Sources */,
+				23A50BE716DE3598002EAD0F /* RDRSSSampleController.m in Sources */,
+				23CDE74716DF4F4800C47519 /* RDRadioButton.m in Sources */,
+				23CDE74A16DF52AF00C47519 /* RDRadioButtonSample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

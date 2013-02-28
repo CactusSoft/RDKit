@@ -10,21 +10,54 @@
 
 @interface RDBadgeView()
 
-- (void) updateFrame;
-- (void) initialize;
+- (void)updateFrame;
+- (void)initialize;
 
 @end
 
+
 @implementation RDBadgeView
+
+#pragma mark - setters/getters
+
 @synthesize text = _text;
+
+-(void)setBadgeAllignment:(RDBadgeAllignment)badgeAllignment
+{
+    _badgeAllignment = badgeAllignment;
+    [self updateFrame];
+}
+
+- (void)setText:(NSString *)text
+{
+    _text = text;
+    [self updateFrame];
+}
+
+- (void)setFont:(UIFont *)font
+{
+    _font = font;
+    [self updateFrame];
+}
+
+- (void)setCornerRoundness:(CGFloat)cornerRoundness
+{
+    _cornerRoundness = cornerRoundness;
+    [self updateFrame];
+}
+
+- (void)setBackgroindImage:(UIImage *)backgroindImage
+{
+    _backgroindImage = [backgroindImage stretchableImageWithLeftCapWidth:floorf(backgroindImage.size.width/2) topCapHeight:floorf(backgroindImage.size.height/2)];
+    [self updateFrame];
+}
 
 #pragma mark - Initialization
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if(self)
-    {
+    if (self) {
         self.text = @"";
         [self initialize];
         [self updateFrame];
@@ -32,9 +65,10 @@
     return self;
 }
 
-- (id)initWithString:(NSString *)badgeString position:(CGPoint)position{
+- (id)initWithString:(NSString *)badgeString position:(CGPoint)position
+{
     self = [super initWithFrame:CGRectMake(position.x, position.y, 25, 25)];
-	if(self!=nil) {
+	if (self!=nil) {
         self.text = badgeString;
         [self initialize];
         [self updateFrame];
@@ -42,7 +76,8 @@
 	return self;
 }
 
-- (void)initialize{
+- (void)initialize
+{
     self.contentScaleFactor = [[UIScreen mainScreen] scale];
     self.backgroundColor = [UIColor clearColor];
     self.isBordered = YES;
@@ -88,34 +123,6 @@
 	[self setNeedsDisplay];
 }
 
-#pragma mark - Setters
-
--(void)setBadgeAllignment:(RDBadgeAllignment)badgeAllignment{
-    _badgeAllignment = badgeAllignment;
-    [self updateFrame];
-}
-
-- (void)setText:(NSString *)text{
-    _text = text;
-    [self updateFrame];
-}
-
-- (void)setFont:(UIFont *)font{
-    _font = font;
-    [self updateFrame];
-}
-
-- (void)setCornerRoundness:(CGFloat)cornerRoundness{
-    _cornerRoundness = cornerRoundness;
-    [self updateFrame];
-}
-
-- (void)setBackgroindImage:(UIImage *)backgroindImage{
-    _backgroindImage = [backgroindImage stretchableImageWithLeftCapWidth:floorf(backgroindImage.size.width/2) topCapHeight:floorf(backgroindImage.size.height/2)];
-    [self updateFrame];
-}
-
-
 #pragma mark - Drawing
 
 -(void) drawRoundedRectWithContext:(CGContextRef)context withRect:(CGRect)rect
@@ -139,10 +146,9 @@
     CGContextFillPath(context);
     
 	CGContextRestoreGState(context);
-    
 }
 
--(void) drawShineWithContext:(CGContextRef)context withRect:(CGRect)rect
+- (void)drawShineWithContext:(CGContextRef)context withRect:(CGRect)rect
 {
 	CGContextSaveGState(context);
     
@@ -158,7 +164,6 @@
 	CGContextAddArc(context, minX+radius, maxY-radius, radius, M_PI/2, M_PI, 0);
 	CGContextAddArc(context, minX+radius, minY+radius, radius, M_PI, M_PI+M_PI/2, 0);
 	CGContextClip(context);
-    
     
 	size_t num_locations = 2;
 	CGFloat locations[2] = { 0.0, 0.4 };
@@ -182,8 +187,7 @@
 	CGContextRestoreGState(context);
 }
 
-
--(void) drawFrameWithContext:(CGContextRef)context withRect:(CGRect)rect
+- (void)drawFrameWithContext:(CGContextRef)context withRect:(CGRect)rect
 {
 	CGFloat radius = CGRectGetMaxY(rect)*self.cornerRoundness;
 	CGFloat puffer = CGRectGetMaxY(rect)*0.10;
@@ -192,7 +196,6 @@
 	CGFloat maxY = CGRectGetMaxY(rect) - puffer;
 	CGFloat minX = CGRectGetMinX(rect) + puffer;
 	CGFloat minY = CGRectGetMinY(rect) + puffer;
-    
     
     CGContextBeginPath(context);
 	CGFloat lineSize = 2;
@@ -207,9 +210,8 @@
 	CGContextStrokePath(context);
 }
 
-
-- (void)drawRect:(CGRect)rect {
-    
+- (void)drawRect:(CGRect)rect
+{
 	CGContextRef context = UIGraphicsGetCurrentContext();
     if (self.backgroindImage == nil || ![self.backgroindImage isKindOfClass:[UIImage class]]) {
         [self drawRoundedRectWithContext:context withRect:rect];
@@ -218,14 +220,13 @@
             [self drawShineWithContext:context withRect:rect];
         }
         
-        if (self.isBordered)  {
+        if (self.isBordered) {
             [self drawFrameWithContext:context withRect:rect];
         }
     } else {
         [self.backgroindImage drawInRect:rect];
     }
 
-    
 	if ([self.text length]>0) {
 		[self.textColor set];
 		CGFloat sizeOfFont = 13.5;
@@ -236,8 +237,6 @@
 		CGSize textSize = [self.text sizeWithFont:textFont];
 		[self.text drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withFont:textFont];
 	}
-    
 }
-
 
 @end

@@ -8,7 +8,7 @@
 
 #import "RDNetworking.h"
 
-static NSString* RDNetworkActivityNotification = @"RDNetworkActivityNotification";
+static NSString* const RDNetworkActivityNotification = @"RDNetworkActivityNotification";
 
 static volatile NSUInteger networkActivityCounter = 0;
 
@@ -41,6 +41,7 @@ static volatile NSUInteger networkActivityCounter = 0;
     @synchronized(self) {
         if (networkActivityCounter == 0) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:RDNetworkActivityNotification object:self];
         }
         networkActivityCounter++;
     }
@@ -53,6 +54,7 @@ static volatile NSUInteger networkActivityCounter = 0;
         networkActivityCounter--;
         if (networkActivityCounter == 0) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:RDNetworkActivityNotification object:self];
         }
     }
 }

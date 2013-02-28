@@ -86,7 +86,7 @@
 }
 
 #pragma mark - RDNetResourceDelegate
-- (void)resourceStateChanged:(id<RDNetResource>)resource from:(RDNetResourceState)fromState to:(RDNetResourceState)toState
+- (void)resource:(id<RDNetResource>)resource didChangeState:(RDNetResourceState)fromState to:(RDNetResourceState)toState
 {
     
 }

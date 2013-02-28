@@ -11,7 +11,7 @@
 @interface RDTextField()
 {
     UIImage* __backgroundImage;
-    UIImage* __inputBackgroundImage;
+    UIImage* __highlightedBackgroundImage;
 }
 @end
 
@@ -25,9 +25,9 @@
     [self setNeedsLayout];
 }
 
-- (void)setInputBackground:(UIImage *)inputBackground
+- (void)sethighlightedBackground:(UIImage *)highlightedBackground
 {
-    __inputBackgroundImage = inputBackground;
+    __highlightedBackgroundImage = highlightedBackground;
     [self setNeedsLayout];
 }
 
@@ -121,8 +121,8 @@
 {
     [super layoutSubviews];
     
-    if ([self isFirstResponder] && __inputBackgroundImage != nil) {
-        super.background = __inputBackgroundImage;
+    if ([self isFirstResponder] && __highlightedBackgroundImage != nil) {
+        super.background = __highlightedBackgroundImage;
     } else if (__backgroundImage != nil) {
         super.background = __backgroundImage;
     }
