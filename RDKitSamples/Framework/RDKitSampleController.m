@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = [isa title];
+    self.title = [self.class title];
 }
 
 @end

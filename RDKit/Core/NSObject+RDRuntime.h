@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Alexey Dozortsev. All rights reserved.
 //
 
-
+#import <Foundation/Foundation.h>
 
 @interface NSObject(RDKitRuntime)
 
