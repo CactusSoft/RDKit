@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSMutableArray (WeakReferences)
+
 + (id)arrayWithWeakReferences;
+
 + (id)arrayWithWeakReferencesWithCapacity:(NSUInteger)capacity;
+
 @end
